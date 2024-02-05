@@ -1,1 +1,1 @@
-# mvc-ihearbrand-clone
+# MVC-ihearbrand-clone
