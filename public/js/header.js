@@ -23,17 +23,33 @@ searchBtn?.addEventListener('click', () => {
 
 function blurScreen(isBlur) {
     const header = document.querySelector('header');
+    const headerItems = header.querySelectorAll('.header-items');
     const container = document.querySelector('.container');
     
     if (isBlur) {
-        header.classList.add("blur-filter");
+        // Set blur filter on header except brand icon and hamburger-btn
+        for (let i=0; i < headerItems.length; i++) {
+            if (i === 0 || i === headerItems.length - 1) {
+                continue;
+            }
+    
+            headerItems[i].classList.add("blur-filter");
+        }
+        
+        // Set everything in container blur
         for(let i=0;i < container.children.length; i++) {
             if (!container.children[i].classList.contains("sidebars")) {
                 container.children[i].classList.add("blur-filter");
             }
         }
     } else {
-        header.classList.remove("blur-filter");
+        // remove blur filter on header except brand icon and hamburger-btn
+        for (let i=0; i < headerItems.length; i++) {
+    
+            headerItems[i].classList.remove("blur-filter");
+        }
+
+        // Set everything in container to normal
         for(let i=0;i < container.children.length; i++) {
             if (!container.children[i].classList.contains("sidebars")) {
                 container.children[i].classList.remove("blur-filter");
@@ -87,7 +103,6 @@ function showContractInfo(contractList, index) {
 
     for(let i=0; i < contractList.children.length; i++) {
         if (index != i) {
-            console.log(contractList.children[i])
             contractList.children[i].style.display = "none";
         } else {
             contractList.children[i].style.display = "block";
@@ -103,22 +118,18 @@ const contractNavLeftBtn = document.querySelector("#contract-nav-left").children
 const contractNavRightBtn = document.querySelector("#contract-nav-right").children[0];
 
 contractNavLeftBtn?.addEventListener('click', () => {
-    console.log('contract nav left button has clicked!')
     if (--contractIndex < 0) {
         contractIndex = contractList.children.length -1;
     }
 
-    console.log(contractIndex);
     showContractInfo(contractList, contractIndex);
 });
 
 contractNavRightBtn?.addEventListener('click', () => {
-    console.log('contract nav right button has clicked!')
     if (++contractIndex > contractList.children.length - 1) {
         contractIndex = 0;
     }
 
-    console.log(contractIndex);
     showContractInfo(contractList, contractIndex);
 });
 
@@ -130,21 +141,17 @@ const contractNavLeftSidebarsBtn = document.querySelector("#contract-nav-left-si
 const contractNavRightSidebarsBtn = document.querySelector("#contract-nav-right-sidebar").children[0];
 
 contractNavLeftSidebarsBtn?.addEventListener('click', () => {
-    console.log('sidebar contract nav left button has clicked!')
     if (--contractSidebarsIndex < 0) {
         contractSidebarsIndex = contractSidebarsList.children.length -1;
     }
 
-    console.log(contractSidebarsIndex);
     showContractInfo(contractSidebarsList, contractSidebarsIndex);
 });
 
 contractNavRightSidebarsBtn?.addEventListener('click', () => {
-    console.log('sidebar contract nav right button has clicked!')
     if (++contractSidebarsIndex > contractSidebarsList.children.length - 1) {
         contractSidebarsIndex = 0;
     }
 
-    console.log(contractSidebarsIndex);
     showContractInfo(contractSidebarsList, contractSidebarsIndex);
 });

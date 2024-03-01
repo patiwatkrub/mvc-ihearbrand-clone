@@ -89,7 +89,7 @@ h1 {
     position: absolute;
     top: 94px;
     right: 0px;
-    width: 30%;
+    width: 280px;
     max-width: 350px;
     height: 100%;
     margin: auto;
@@ -621,6 +621,7 @@ footer > div:last-child > p > a {
 
 .brand-info-2 {
     display: flex;
+    flex-wrap: wrap;
     gap: 5px;
     width: 100vw;
     position: relative;
@@ -712,7 +713,6 @@ Not working some reason
     background-color: rgb(157, 14, 52);
     
     h2 {
-        
         width: 100%;
         margin: 0px auto 30px auto;
         text-align: center;
@@ -721,12 +721,16 @@ Not working some reason
     div {
         text-align: center;
         display: flex;
+        position: relative;
+        left: -20px;
         padding: 0px 45px;
-        max-width: 600px;
+        margin: 0px 25px;
+        max-width: 540px;
         max-height: 350px;
     }
 
     div > div {
+        width: auto;
         text-align: center;
         display: block;
     }
@@ -825,12 +829,10 @@ Not working some reason
 }
 
 .social-box a:nth-child(2) {
-    
     background-color: black;
 }
 
-/* Work on < 1024px of screen */
-@media screen and (max-width: 1024px) {
+@media only screen and (max-width:1024px) {
     .header-list > li:not(:first-child) > a,
     .header-list:first-child #contract-box,
     #contract-nav-left, #contract-nav-right {
@@ -848,6 +850,26 @@ Not working some reason
         right: 0px;
     }
 
+    .cost-narrow {
+        display: none;
+    }
+
+    .brand-info-4 {
+        height: 800px;
+    }
+
+    .brand-info-4 > div {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        left: 100px;
+    }
+
+    .brand-info-4 p {
+        position: relative;
+        left: 10%;
+    }
+
     footer {
         flex-direction: column;
         text-align: center;
@@ -863,4 +885,57 @@ Not working some reason
         max-width: 100%;
         text-align: center;
     }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    
+    .cost-cards > div {
+            height: auto;
+            padding: 10px;
+    }
+
+    .cost-img img {
+        width: 300px;
+        object-fit: scale-down;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .cost-cards {
+        display: block;
+    }
+
+    .cost-cards > div {
+        width: 100%;
+    }
+
+    .cost-images img {
+        border-radius: 0px;
+    }
+    
+    .cost-details {
+        padding: 20px;
+    }
+
+    .contracts > div {
+        display: block;
+    }
+
+    .brand-info-2 {
+        flex-wrap: wrap;
+    }
+    
+    .brand-info-cards {
+        width: 300px;
+        text-align: center;
+    }
+
+    .brand-info-4 > div {
+        left: 0px;
+    }
+
+    /* .brand-info-5 {
+        top: 280px;
+        display: none;
+    } */
 }
