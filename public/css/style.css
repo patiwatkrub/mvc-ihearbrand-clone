@@ -894,6 +894,10 @@ Not working some reason
             padding: 10px;
     }
 
+    .brand-info-4 > div {
+        left: 0px;
+    }
+
     .cost-img img {
         width: 300px;
         object-fit: scale-down;
